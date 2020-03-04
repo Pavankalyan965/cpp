@@ -1,0 +1,249 @@
+int arr[100],n=0;
+void display()
+{
+	int i;
+   for(i=0;i<n;i++)
+   {
+   	  printf("%d\t",arr[i]);
+   }	
+}
+
+
+void insertLast()
+{
+	int value;
+	printf("Enter value");
+	scanf("%d",&value);
+	arr[n]=value;
+	n++;
+	
+}
+
+void insertFirst()
+{
+	int value,i;
+	printf("Enter value");    // 56 78 23 12 34       90
+	scanf("%d",&value);
+	
+	for(i=n;i>0;i--)
+	{
+		arr[i]=arr[i-1];
+	}
+	arr[0]=value;
+	n++;
+	
+}
+void insertIndex()
+{
+	int value,i,index;
+	printf("Enter value");    // 56 78 23  90 12_ 34_    90
+	scanf("%d",&value);
+	printf("enter index to insert value");
+	scanf("%d",&index);
+	if(index<=n)
+	{
+		 for(i=n;i>index;i--)
+		 {
+		 	arr[i]=arr[i-1];
+		 }
+		 arr[index]=value;
+		 n++;
+	}
+	else
+	{
+		printf("invalid index");
+	}
+}
+void deleteFirstOcc()
+{
+	int search,i,j;
+	printf("enter search element to delete");
+	scanf("%d",&search);
+	for(i=0;i<n;i++)                     
+	{
+    	if(search==arr[i])
+	    {
+		    for(j=i;j<n;j++)
+		    {
+		    	arr[j]=arr[j+1];
+			}
+			n--;
+			break;
+  	    }
+   }
+}
+void deletelastocc()
+{
+	int search,i,j;  
+	printf("enter search element to delete");    // 67 23 45 12 45 55
+	scanf("%d",&search);
+	for(i=n-1;i>=0;i--)
+	{
+		if(search==arr[i])
+		{
+		     for(j=i;j<n;j++)
+			 {
+			 	arr[j]=arr[j+1];
+			 }	
+			 n--;
+			 break;
+		}
+	}
+	
+}
+void deleteAll()
+{
+	int search,i,j;
+	printf("enter search element to delete");
+	scanf("%d",&search);
+	for(i=0;i<n;i++)                     
+	{
+    	if(search==arr[i])
+	    {                                      // 10 10 10 10 23 45 56 
+	    
+		    for(j=i;j<n;j++)
+		    {
+		    	arr[j]=arr[j+1];
+			}
+			i=-1;
+			n--;
+		
+  	    }
+   }
+}
+void deleteIndex()
+{
+	int index,i;
+	printf("Enter index to delete");
+	scanf("%d",&index);                  // 34 12 56 67 34 12
+	for(i=index;i<n;i++)
+	{
+		arr[i]=arr[i+1];
+	}
+	n--;
+	
+}
+void ascOrder()
+{
+	int i,j,temp;
+	for(i=0;i<n;i++)    // 34 12 56 68 33 44 
+	{
+		 for(j=i+1;j<n;j++)
+		 {
+		 	if(arr[i]>arr[j])
+		 	{
+		 		temp=arr[i];
+		 		arr[i]=arr[j];
+		 		arr[j]=temp;
+			 }
+		 }
+	}
+}
+void descorder()
+{
+		int i,j,temp;
+	for(i=0;i<n;i++)    // 34 12 56 68 33 44 
+	{
+		 for(j=i+1;j<n;j++)
+		 {
+		 	if(arr[i]<arr[j])
+		 	{
+		 		temp=arr[i];
+		 		arr[i]=arr[j];
+		 		arr[j]=temp;
+			 }
+		 }
+	}
+}
+void viewOprions()
+{
+	int opt;
+	
+	do{
+	printf("\n1.Insert First \n2.Insert last\n3.insert index \n");
+	printf("4.delete first occurence of search element\n");
+	printf("5.delete last occurence of search element\n");
+	printf("6.delete ALL occurences of search element\n");
+	printf("7.delete element using index\n");
+	printf("8. Asc order\n");
+	printf("9. Desc order\n");
+	
+	scanf("%d",&opt);
+	switch(opt)
+	{
+		case 1:
+			{
+				 insertFirst();
+				 display();
+				 break;
+			}
+		case 2:
+			{
+				insertLast();
+				display();
+				break;
+			}
+		case 3:
+			{
+				insertIndex();
+				display();
+				break;
+			}
+		case 4:
+			{
+			
+			deleteFirstOcc();
+			display();
+			break;
+		}
+		case 5:
+			{
+				deletelastocc();
+				display();
+				break;
+			}
+		case 6:
+			{
+				deleteAll();
+				display();
+				break;
+				
+			}
+		case 7:
+			{
+				deleteIndex();
+				display();
+				break;
+			}
+		case 8:
+			{
+				ascOrder();
+				display();
+				break;
+			}
+		case 9:
+			{
+				descorder();
+				display();
+				break;
+			}
+		case 0:
+			{
+				printf("Thnak you");
+				break;
+			}
+		default:
+			{
+				printf("invalid option");
+			}
+	}
+}
+while(opt!=0);
+}
+void main()
+{
+    viewOptions();
+
+}
+
+

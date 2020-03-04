@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int reverse(int n)
+{
+	int i,rem=0,rev;
+	while(n!=0)
+	{
+		rem=n%10;
+		rev=rev*10+rem;
+		n=n/10;
+	}
+	return rev;
+}
+int main()
+{
+	int n,c;
+	cout<<"Enter n: ";
+	cin>>n;
+	c=reverse(n);
+	cout<<c;
+	return 0;
+}

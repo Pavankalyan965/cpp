@@ -1,0 +1,39 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+void armstrong(int start,int stop)
+{
+		int i,temp,rem=0,digits=0,sum=0;
+		
+		while(start<=stop)
+		{
+		temp=start;
+		while(start!=0)
+		{
+			start=start/10;
+			digits++;
+		}
+		start=temp;
+		while(start!=0)
+	{
+		rem=start%10;
+		sum=sum+pow(rem,digits);
+		start=start/10;
+	
+	}
+		
+	start=temp;
+		if(start==sum)
+	{
+			cout<<sum<<"\t";
+	}
+sum=0;
+digits=0;
+start++;
+}
+}
+int main()
+{
+	armstrong(153,10000);
+	return 0;
+}

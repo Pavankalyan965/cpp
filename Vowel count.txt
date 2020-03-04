@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int i,a=0,e=0,i1=0,o=0,u=0;
+	string sentence;
+	cout<<"Enter a sentence";
+	getline(cin,sentence);
+	for(i=0;sentence[i]!='\0';i++)
+	{
+	 if(sentence[i]=='a') 
+	 {
+	 	a++;
+	 	 
+	 }
+	 else if(sentence[i]=='e')
+	 {
+	 	e++;
+	 }
+	  else if(sentence[i]=='i1')
+	 {
+	 	i1++;
+	 }
+	  else if(sentence[i]=='o')
+	 {s
+	 	o++;
+	 }
+	  else if(sentence[i]=='u')
+	 {
+	 	u++;
+	 }
+	 	
+	}
+	cout<<"No of a:"<<a<<"\t";
+	cout<<"No of e:"<<e<<"\t";
+	cout<<"No of i:"<<i1<<"\t";
+	cout<<"No of o:"<<o<<"\t";
+	cout<<"No of u:"<<u<<"\t";
+}
